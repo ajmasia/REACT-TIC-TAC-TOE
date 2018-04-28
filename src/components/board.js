@@ -2,7 +2,17 @@
  * Import dependences
  */
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import {
+	MainStyled,
+	HeaderStyled,
+	BoardWrapper,
+	ScoresStyled,
+	PlayerStyled,
+	FooterStyled,
+	StatusStyled,
+	ButtonStyled,
+	ValueStyled,
+} from '../layouts/board';
 
 /**
  * Import components
@@ -58,72 +68,6 @@ class Board extends Component {
 		);
 	}
 }
-
-/**
- * Styled SquBoardare components
- */
-const MainStyled = styled.div`
-	width: 474px;
-`;
-
-const HeaderStyled = styled.div`
-	display: flex;
-	justify-content: space-between;
-	height: 60px;
-`;
-
-const BoardWrapper = styled.div`
-	display: flex;
-	width: 474px;
-	flex-wrap: wrap;
-	margin: auto;
-`;
-
-const ScoresStyled = styled.div`
-	display: flex;
-	align-items: center;
-`;
-
-const PlayerStyled = styled.div`
-	padding: 4px;
-	border-bottom: 2px solid;
-	border-color: ${props => (props.player ? 'gold' : 'white')};
-	margin: 4px;
-`;
-
-const FooterStyled = styled.div`
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	height: 60px;
-`;
-
-const StatusStyled = styled.div`
-	width: 100px;
-	padding: 4px;
-	font-size: 0.8rem;
-	color: #999999;
-`;
-
-const ButtonStyled = styled.div`
-	padding: 4px;
-	width: 100px;
-	padding: 8px;
-	margin-left: 4px;
-	color: #fff;
-	background-color: #5cb85c;
-	border-color: #5cb85c;
-	border: 2px solid #5cb85c;
-	border-radius: 6px;
-	text-align: center;
-	transition: all 0.2s ease-in-out;
-`;
-
-const ValueStyled = styled.span`
-	font-size: 1.2em;
-	font-weight: bold;
-	padding-left: 4px;
-`;
 
 // Export Board component
 export default Board;
