@@ -8,9 +8,9 @@ import styled from 'styled-components';
  * Styled Square components
  */
 const SquareStyled = styled.div`
-	width: 100px;
-	height: 100px;
-	border: 1px solid gray;
+	width: 150px;
+	height: 150px;
+	border: 4px solid white;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -18,7 +18,7 @@ const SquareStyled = styled.div`
 `;
 
 const ValueStyled = styled.h1`
-	font-size: 44px;
+	font-size: 64px;
 `;
 
 /**

@@ -14,7 +14,7 @@ import Square from './square';
  */
 const BoardWrapper = styled.div`
 	display: flex;
-	width: 306px;
+	width: 474px;
 	flex-wrap: wrap;
 	margin: auto;
 `;

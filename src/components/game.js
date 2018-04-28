@@ -55,10 +55,10 @@ class Game extends Component {
 		const winner = checkWinner(this.state.squares);
 
 		let playerStatus = 'Next Player: ' + (this.state.nextPlayer ? 'X' : 'O');
-		let scoreX = this.state.scoreX;
-		let scoreO = this.state.scoreO;
 
 		if (winner) {
+			console.log(winner);
+			// this.setState.scoreX = this.state.scoreX++;
 			playerStatus = 'Player ' + winner + ' win';
 			swal('Good job!', 'Player ' + winner + ' win', 'success');
 		}
@@ -66,8 +66,8 @@ class Game extends Component {
 		return (
 			<GameStyled>
 				<Title />
-				<div>{scoreX}</div>
-				<div>{scoreX}</div>
+				<div>{this.state.scoreX}</div>
+				<div>{this.state.scoreO}</div>
 				<div className="game-board">
 					<Board
 						squares={this.state.squares}
