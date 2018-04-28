@@ -11,6 +11,55 @@ import Square from './square';
 import Title from '../layouts/title';
 
 /**
+ * Board component
+ */
+class Board extends Component {
+	// Render square method
+	renderSquare(i) {
+		return (
+			<Square
+				value={this.props.squares[i]}
+				onClick={() => this.props.onClick(i)}
+			/>
+		);
+	}
+
+	// Render component
+	render() {
+		return (
+			<MainStyled>
+				<HeaderStyled>
+					<Title />
+					<ScoresStyled>
+						<PlayerStyled player={this.props.player}>
+							Score X: <ValueStyled>{this.props.playerXScore}</ValueStyled>
+						</PlayerStyled>
+						<PlayerStyled player={!this.props.player}>
+							Score O: <ValueStyled>{this.props.playerOScore}</ValueStyled>
+						</PlayerStyled>
+					</ScoresStyled>
+				</HeaderStyled>
+				<BoardWrapper>
+					{this.renderSquare(0)}
+					{this.renderSquare(1)}
+					{this.renderSquare(2)}
+					{this.renderSquare(3)}
+					{this.renderSquare(4)}
+					{this.renderSquare(5)}
+					{this.renderSquare(6)}
+					{this.renderSquare(7)}
+					{this.renderSquare(8)}
+				</BoardWrapper>
+				<FooterStyled>
+					<StatusStyled>{this.props.gameStatus}</StatusStyled>
+					<ButtonStyled onClick={this.props.resetGame}>Reset game</ButtonStyled>
+				</FooterStyled>
+			</MainStyled>
+		);
+	}
+}
+
+/**
  * Styled SquBoardare components
  */
 const MainStyled = styled.div`
@@ -37,6 +86,9 @@ const ScoresStyled = styled.div`
 
 const PlayerStyled = styled.div`
 	padding: 4px;
+	border-bottom: 2px solid;
+	border-color: ${props => (props.player ? 'gold' : 'white')};
+	margin: 4px;
 `;
 
 const FooterStyled = styled.div`
@@ -48,13 +100,9 @@ const FooterStyled = styled.div`
 
 const StatusStyled = styled.div`
 	width: 100px;
-	padding: 10px;
-	margin-left: 4px;
+	padding: 4px;
 	font-size: 0.8rem;
-	border: 2px solid #d0e9c6;
-	border-radius: 6px;
-	background: #dff0d8;
-	color: #3c763d;
+	color: #999999;
 `;
 
 const ButtonStyled = styled.div`
@@ -71,50 +119,11 @@ const ButtonStyled = styled.div`
 	transition: all 0.2s ease-in-out;
 `;
 
-/**
- * Board component
- */
-class Board extends Component {
-	// Render square method
-	renderSquare(i) {
-		return (
-			<Square
-				value={this.props.squares[i]}
-				onClick={() => this.props.onClick(i)}
-			/>
-		);
-	}
-
-	// Render component
-	render() {
-		return (
-			<MainStyled>
-				<HeaderStyled>
-					<Title />
-					<ScoresStyled>
-						<PlayerStyled>Score X: {this.props.playerXScore}</PlayerStyled>
-						<PlayerStyled>Score O: {this.props.playerOScore}</PlayerStyled>
-					</ScoresStyled>
-				</HeaderStyled>
-				<BoardWrapper>
-					{this.renderSquare(0)}
-					{this.renderSquare(1)}
-					{this.renderSquare(2)}
-					{this.renderSquare(3)}
-					{this.renderSquare(4)}
-					{this.renderSquare(5)}
-					{this.renderSquare(6)}
-					{this.renderSquare(7)}
-					{this.renderSquare(8)}
-				</BoardWrapper>
-				<FooterStyled>
-					<StatusStyled>{this.props.gameStatus}</StatusStyled>
-					<ButtonStyled onClick={this.props.resetGame}>Reset game</ButtonStyled>
-				</FooterStyled>
-			</MainStyled>
-		);
-	}
-}
+const ValueStyled = styled.span`
+	font-size: 1.2em;
+	font-weight: bold;
+	padding-left: 4px;
+`;
 
 // Export Board component
 export default Board;

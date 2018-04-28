@@ -2,6 +2,7 @@
  * Import dependences
  */
 import React, { Component } from 'react';
+import swal from 'sweetalert2';
 
 /**
  * Import components
@@ -18,6 +19,14 @@ const AppStyled = styled.div`
 	justify-content: center;
 	height: 100vh;
 `;
+swal({
+	title: 'Wellcome to REACT TIC TAC TOE',
+	text: 'Try to put your chips aligned in at least three boxes',
+	type: 'info',
+	width: '800px',
+	footer:
+		'A simple game to learn REACT </br><a href="http://antoniomasia.com">antoniomasia.com</a>',
+});
 
 /**
  * App smart component

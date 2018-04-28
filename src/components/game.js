@@ -3,7 +3,7 @@
  */
 import React, { Component } from 'react';
 import { checkWinner } from '../lib/gameLib';
-import swal from 'sweetalert';
+import swal from 'sweetalert2';
 
 /**
  * Import components
@@ -83,7 +83,12 @@ class Game extends Component {
 		// Check winner
 		const winner = checkWinner(this.state.squares);
 		if (winner) {
-			swal('Good job!', 'Player ' + winner + ' win', 'success').then(value => {
+			swal({
+				title: 'Good job!',
+				text: `Player ${winner} win`,
+				type: 'success',
+				timer: 3500,
+			}).then(value => {
 				this.newGame();
 			});
 
@@ -92,11 +97,14 @@ class Game extends Component {
 		} else {
 			// Check if nobeday win
 			if (winner === null && !this.state.squares.includes(null)) {
-				swal('Oops it seem nodbody win!', 'Try again! ', 'success').then(
-					value => {
-						this.newGame();
-					},
-				);
+				swal({
+					title: 'Oops!',
+					text: 'It seems nobody has won this hand! Try agin!',
+					type: 'success',
+					timer: 3500,
+				}).then(value => {
+					this.newGame();
+				});
 			} else {
 				return 'Next Player: ' + (this.state.nextPlayer ? 'X' : 'O');
 			}
@@ -109,6 +117,7 @@ class Game extends Component {
 				squares={this.state.squares}
 				onClick={i => this.handleClick(i)}
 				gameStatus={this.getStatus()}
+				player={this.state.nextPlayer}
 				playerXScore={this.state.scoreX}
 				playerOScore={this.state.scoreO}
 				resetGame={this.resetGame}
