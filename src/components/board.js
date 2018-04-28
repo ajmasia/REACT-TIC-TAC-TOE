@@ -74,7 +74,7 @@ Board.propTypes = {
 	player: PropTypes.bool.isRequired,
 	playerXScore: PropTypes.number.isRequired,
 	playerOScore: PropTypes.number.isRequired,
-	gameStatus: PropTypes.string.isRequired,
+	gameStatus: PropTypes.string,
 	squares: PropTypes.array.isRequired,
 	onClick: PropTypes.func.isRequired,
 };
