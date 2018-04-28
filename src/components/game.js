@@ -83,8 +83,6 @@ class Game extends Component {
 		// Check winner
 		const winner = checkWinner(this.state.squares);
 		if (winner) {
-			//swal('Good job!', 'Player ' + winner + ' win', 'success');
-
 			swal('Good job!', 'Player ' + winner + ' win', 'success').then(value => {
 				this.newGame();
 			});
@@ -92,7 +90,16 @@ class Game extends Component {
 			console.log('Player', winner, 'win!');
 			return 'Player ' + winner + ' win!';
 		} else {
-			return 'Next Player: ' + (this.state.nextPlayer ? 'X' : 'O');
+			// Check if nobeday win
+			if (winner === null && !this.state.squares.includes(null)) {
+				swal('Oops it seem nodbody win!', 'Try again! ', 'success').then(
+					value => {
+						this.newGame();
+					},
+				);
+			} else {
+				return 'Next Player: ' + (this.state.nextPlayer ? 'X' : 'O');
+			}
 		}
 	};
 
