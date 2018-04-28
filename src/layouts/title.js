@@ -11,7 +11,6 @@ import logo from '../logo.svg';
 const TitleWrapper = styled.div`
 	display: flex;
 	align-items: center;
-	margin: auto;
 `;
 
 const LogoStyled = styled.img`
@@ -29,6 +28,7 @@ const LogoStyled = styled.img`
 
 const ValueStyled = styled.h1`
 	font-size: 1.2em;
+	padding-left: 4px;
 `;
 
 /**
@@ -36,8 +36,8 @@ const ValueStyled = styled.h1`
  */
 const Title = props => (
 	<TitleWrapper>
-		<LogoStyled src={logo} />
 		<ValueStyled>TIC TAC TOE</ValueStyled>
+		<LogoStyled src={logo} />
 	</TitleWrapper>
 );
 
