@@ -3,6 +3,7 @@
  */
 import React, { Component } from 'react';
 import { checkWinner } from '../lib/gameLib';
+import PropTypes from 'prop-types';
 import swal from 'sweetalert2';
 
 /**
@@ -125,5 +126,15 @@ class Game extends Component {
 		);
 	}
 }
+
+Game.protTypes = {
+	squares: PropTypes.array.isRequired,
+	nextPlayer: PropTypes.bool.isRequired,
+	scoreX: PropTypes.number.isRequired,
+	scoreO: PropTypes.number.isRequired,
+	resetGame: PropTypes.func.isRequired,
+	handleClick: PropTypes.func.isRequired,
+	getStatus: PropTypes.func.isRequired,
+};
 
 export default Game;

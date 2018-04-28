@@ -16,10 +16,16 @@ Run any of the following commands depending on how you want to work:
 
 | Command      | Mode                                                    |
 | ------------ | ------------------------------------------------------- |
-| `yarn start` | Run the app in the development mode                    |
+| `yarn start` | Run the app in the development mode                     |
 | `yarn build` | Builds the app for production to the `build` folder     |
 | `yarn test`  | Launches the test runner in the interactive watch mode. |
 | `yarn eject` | Eject app from development environment                  |
+
+## Playing
+
+The object of Tic Tac Toe is to get three in a row. You play on a three by three game board. The first player is known as X and the second is O. Players alternate placing Xs and Os on the game board until either oppent has three in a row or all nine squares are filled. X always goes first, and in the event that no one has three in a row, the stalemate is called a cat game.
+
+Is you touch `Reset button`, the scores are initialized.
 
 ## Codding notes
 
@@ -28,6 +34,12 @@ Extra libraries used:
 
 * [Styled Compoments](https://www.styled-components.com/)
 * [sweetalert2](https://sweetalert2.github.io/)
+* [Prop Types](https://github.com/facebook/prop-types)
+
+## Next features
+
+* [Redux](https://redux.js.org/) implement
+* Computer as player using IA
 
 ## License
 

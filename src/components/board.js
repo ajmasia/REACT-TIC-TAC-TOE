@@ -2,6 +2,7 @@
  * Import dependences
  */
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
 	MainStyled,
 	HeaderStyled,
@@ -68,6 +69,15 @@ class Board extends Component {
 		);
 	}
 }
+
+Board.propTypes = {
+	player: PropTypes.bool.isRequired,
+	playerXScore: PropTypes.number.isRequired,
+	playerOScore: PropTypes.number.isRequired,
+	gameStatus: PropTypes.string.isRequired,
+	squares: PropTypes.array.isRequired,
+	onClick: PropTypes.func.isRequired,
+};
 
 // Export Board component
 export default Board;
